@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/termsandconditions.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>BellaClick</title>
+    </head>
+    <body>
+        <div class="app">
+            <div id="index_div">
+                <h1>Welcome BellaClick</h1>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Device is Ready</p>
+                </div>
+            </div>
+            <div id="control_de_toma_div">
+                <h1>Control de Toma BellaClick</h1>
+            </div>
+            <div id="terminos_y_condiciones_div">
+                <h1>Terminos y Condiciones</h1>
+                <div id="templateSection">[Template Here]</div>
+                <input id="submit_aceptar_terminos" class="cbp-mc-submit" type="submit" value="Aceptar" />
+                <input id="submit_declinar_terminos" class="cbp-mc-submit" type="submit" value="Declinar" />
+            </div>
+        </div>
+        <div id="app_footer">
+            <input id="submit_view_index_div" class="cbp-mc-submit" type="submit" value="Index" />
+            <input id="submit_view_controldetoma_div" class="cbp-mc-submit" type="submit" value="Control de toma" />
+        </div>
+        <!-- LIB -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.js"></script>
+        <script type="text/javascript" src="js/lib/localstorage.js"></script>
+        <script type="text/javascript" src="js/lib/fastclick.js"></script>
+        <script type="text/javascript" src="js/lib/handlebars-v1.3.0.js"></script>
+        <!-- VIEW VARS -->
+        <script type="text/javascript" src="js/view/ids.js"></script>
+        <!-- EVENTS -->
+        <script type="text/javascript" src="js/events/onchange.js"></script>
+        <script type="text/javascript" src="js/events/onclick.js"></script>
+        <script type="text/javascript" src="js/events/runtime.js"></script>
+        <!-- CONTROLLERS -->
+        <script type="text/javascript" src="js/controller/terminosycondiciones.js"></script>
+        <script type="text/javascript" src="js/controller/controldetoma.js"></script>
+        <script type="text/javascript" src="js/controller/index.js"></script>
+        <!-- CORDOVA APP -->
+        <script type="text/javascript" src="js/app.js"></script>
+        <!-- HANDLEBARS TEMPLATES -->
+        <script id="entry-template" type="text/x-handlebars-template">
+          <ul class="people_list">
+              {{#each people}}
+                <li>{{this}}</li>
+              {{/each}}
+            </ul>
+                <div class="terms">
+                <h3>Terminos y Condiciones</h3>
+
+                <h4>I- Glosario de Términos</h4>
+
+                <ul>
+                <li>Gynopharm Sociedad Anónima, en adelante conocida como la Empresa: es la empresa que ofrece el servicio detallado en el presente documento por medio de una aplicación a los usuarios a los que se les ha brindado un nombre de usuario y contraseña.</li>
+                <li>CFR PHARMACEUTICALS: es el nombre comercial de la Empresa por medio de la cual la misma opera. Para los efectos del presente documento, Gynopharm S.A. y CFR Pharmaceuticals deberán entenderse como la misma empresa que ofrece el servicio.</li>
+                <li>Usuario / cliente final: son las personas a las que se les ofrece el servicio de beneficiarse con ofertas en la compra de sus medicamentos, para apoyarles en el cumplimiento de su tratamiento médico, a través de la aplicación.</li>
+                <li>Aplicación: es el programa informático diseñado por CFR Pharmaceuticals como herramienta para permitir a los usuarios recibir información sobre promociones y participar en sorteos y actividades.</li>
+                <li>Contenido: significa, sin limitación, todos los textos, imágenes, audio, video y gráficos (y todas sus mejoras, suplementos, actualizaciones, revisiones y/o correcciones) provistos por CFR Pharmaceuticals a través de su aplicación.</li>
+                <li>AHORRO SALUDABLE / BELLACLICK: es el programa elaborado y ofrecido por CFR Pharmaceuticals y que constituye un sistema de apoyo en tratamiento médico.</li>
+                <li>Nombre de usuario: significa una palabra y/o número o conjunto de palabras y/o números creado por el mismo usuario / cliente final para el ingreso a la aplicación, y el cual será de uso exclusivo y no podrá ser compartido a terceras personas.</li>
+                <li>Contraseña o Password: es un conjunto de letras y/o números creado por el mismo usuario / cliente final para su ingreso a la aplicación, y la cual será de uso exclusivo y no podrá ser compartida o transferida a terceras personas.</li>
+                <li>Información de registro: consiste en datos personales, los cuales podrán ser entre los siguientes: nombre completo, dirección, teléfono, correo electrónico, nombre del médico, sin perjuicio de que existan otros. Estos datos deberán ser siempre veraces y actualizados. </li>
+                <li>list item number three</li>
+                <li>list item number three</li>
+                <li>list item number three</li>
+                <li>list item number three</li>
+                </ul>
+
+                <h4>II- Aceptación</h4>
+                <p>Como usuario del programa AHORRO SALUDABLE / BELLACLICK, (en adelante "el programa"), usted acepta respetar los términos y condiciones de esta Política de Uso, que a continuación se enuncian. El hecho de ingresar a la aplicación, registrarse como usuario, participar en las promociones de uno o más medicamentos, implicará para usted la aceptación tácita del presente acuerdo o Política de Uso. Por lo anterior será absolutamente necesario que lea cuidadosamente este documento en su totalidad, a efectos de evitar confusiones.</p>
+
+                <h4>III- Servicio</h4>
+                <p>CFR PHARMACEUTICALS pone a disposición de los usuarios, quienes han creado un nombre de usuario y una contraseña de uso estrictamente personal, el beneficio de informarse y participar en promociones de tratamientos y algunos otros productos farmacéuticos y de libre venta, definidos únicamente por CFR PHARMACEUTICALS, los cuales CFR Pharmaceuticals incluye como ofertas de canjes y/o descuentos como parte de su objetivo de brindar un apoyo a los médicos y pacientes para brindar mayor accesibilidad en el cumplimiento de la terapia dispuesta por el médico correspondiente. Este sistema de apoyo al tratamiento médico que opera por medio de la aplicación consiste en que la empresa pone a disposición de los usuarios distintas ofertas y promociones que pueden variar mes a mes para garantizar mayor accesibilidad al paciente.</p>
+                <p>Todas las promociones son válidas en las cademas de farmacias o farmacias independientes que han decidido participar como puntos de venta/canje de los medicamentos seleccionados para la aplicación. Previo a la adquisición de cualquier oferta el paciente debe contar con la debida receta para mostrarla en cualquiera de estos puntos, ya que es un requisito indispensable e inexcusable, y en el entendido de que todo medicamento de previo a ser entregado, requiere receta médica, el usuario deberá haber comprobado que exista dicha receta médica para el medicamento del que se trate. Dicha receta médica deberá haber sido otorgada posterior a una consulta con un médico especializado en el área de la salud correspondiente a efectos de tener bajo control los efectos secundarios que todo medicamento posee.</p>
+                <p>El servicio ofrecido a través de la aplicación AHORRO SALUDABLE / BELLACLICK es de propiedad exclusiva de esta empresa y constituye un servicio gratuito para los usuarios, por lo que deberán cumplir estrictamente con las condiciones señaladas en este documento. El contenido y los servicios ofrecidos por medio de la aplicación son exclusivamente para uso del usuario, y los medicamentos entregados como beneficio de canje/oferta no podrán ser ofrecidos para la venta, ni transferida su propiedad a terceros.</p>
+                <p>CFR PHARMACEUTICALS podrá en cualquier momento suspender, en forma temporal o definitiva, la suscripción de aquellos usuarios de los que se compruebe que no han cumplido a cabalidad las condiciones estipuladas en este documento, cuando al registrarse brinden información falsa o inexacta, y en cualquier otro caso, a discreción de la empresa.</p>
+                <h4>IV- Seguridad, Nombre de Usuario y Contraseña</h4>
+                <p>El usuario será responsable de guardar el nombre y la contraseña en forma confidencial. El usuario se compromete a notificar inmediatamente a la empresa CFR PHARMACEUTICALS del uso desautorizado, real o sospechado, de su cuenta o contraseña. Bajo ninguna circunstancia, el nombre de usuario y la contraseña podrán ser transferibles.</p>
+                <h4>V- Acerca del abastecimiento de medicamentos</h4>
+                <p>CFR PHARMACEUTICALS ofrecerá a los usuarios una serie de medicamentos en los términos que indiquen cada una de las promociones que se publiquen a través de la aplicación, esta empresa no garantiza que siempre esté abastecida de todos los medicamentos solicitados, lo cual depende de la oferta y la demanda de los mismos en el mercado. A pesar de que esta es una empresa farmacéutica, es posible que algunos medicamentos estén agotados a la hora de la solicitud, de lo cual de ser el caso, así se le avisará al usuario.</p>
+                <h4>VI- Conducta del usuario</h4>
+                <p>Como usuario, usted conviene utilizar los servicios brindados por la aplicación de la manera acá estipulada, y queda absolutamente prohibida su utilización distinta de la que acá se describe, de manera que de demostrarse un uso incorrecto se podrá proceder con la eliminación del usuario y se pondrá fin a los beneficios otorgados por la aplicación, sin necesidad de previo aviso.</p>
+                <h4>VII- Derechos de autor y Licencias</h4>
+                <p>La aplicación elaborada por CFR Pharmaceuticals y todo el material contenido en la misma tienen reservados todos los Derechos. Usted no puede modificar, copiar, reproducir, transmitir, distribuir, publicar, crear obras derivadas, exhibir ni de otro modo transferir o explotar comercialmente ningún material contenido en este sitio, en su totalidad o parcialmente. Está estrictamente prohibida la redistribución, retransmisión o publicación de cualquier material copiado sin el consentimiento expreso y por escrito de CFR Pharmaceuticals. Usted debe respetar todos los derechos de autor contenidos dentro de avisos, artículos, notas y /o noticias alojadas en la aplicación. Usted se compromete a no infringir los derechos de propiedad intelectual de CFR Pharmaceuticals.</p>
+                <h4>VIII- Propiedad Intelectual</h4>
+                <p>CFR PHARMACEUTICALS y SATME son marcas registradas. Nada de lo establecido y/o contenido en la aplicación podrá ser interpretado como equivalente al otorgamiento, expreso o implícito, de una licencia o cualquier otro derecho de uso de las marcas exhibidas en la aplicación, sin el expreso consentimiento deCFR Pharmaceuticals. El uso de las marcas exhibidas en las aplicación está estrictamente prohibido, excepto que dicho uso se efectúe conforme lo establecido en esta Política de Uso. CFR Pharmaceuticals hará respetar sus derechos de Propiedad Intelectual con el máximo rigor permitido por la ley, incluyendo el inicio de acciones penales.</p>
+                <h4>IX- Declaración de descargo de responsabilidad</h4>
+                <p>El usuario al aceptar este documento, acepta inexcusablemente que descarga a CFR Pharmaceuticals de cualquier responsabilidad por el uso de medicamentos que se incluyan en la aplicación y/o promocionados a través de la aplicación o punto de venta. Al adquirir un medicamento en específico, el usuario deberá estar completamente seguro y garantiza, que exista una receta médica que respalde dicho pedido, la cual podrá ser solicitada por CFR Pharmaceuticals. La Empresa no se hará responsable por cualquier efecto no deseado después del consumo o aplicación del medicamento, ya que se entiende que existe una consulta previa ante un médico especializado, el cual habrá entregado la respectiva receta médica y habrá hecho las observaciones y advertencias necesarias.</p>
+                <h4>X- Cambios en el servicio o en la Política de Uso</h4>
+                <p>CFR Pharmaceuticals se reserva el derecho de modificar, suspender o discontinuar el servicio, en cualquier momento, sin necesidad de que medie previo aviso a los usuarios. Además, la empresa se reserva el derecho de modificar esta Política de Uso en cualquier momento, de modo que, periódicamente, usted tiene la oportunidad de informarse sobre los cambios producidos.</p>
+                <h4>XI- Incumplimiento de acatar la Política de Uso</h4>
+                <p>Como usuario, usted conviene y reconoce que, como consecuencia del incumplimiento de esta Política de Uso o de cualquiera de los otros avisos legales contenidos en la aplicación, CFR Pharmaceuticals podrá suspender o dar por concluida su calidad de usuario sin que medie previo aviso.</p>
+                <h4>XII- Ley aplicable y jurisdicción competente</h4>
+                <p>Esta Política de Uso será interpretada de conformidad con las leyes del país en que el usuario se encuentre domiciliado. Cualquier controversia que surja en relación con lo establecido en esta Política de Uso, será resuelta definitivamente por los Tribunales o institución competente del país en que el usuario se encuentre domiciliado, a cuya jurisdicción los usuarios se someten.</p>
+                <h4>XIII- Confirmación de acuerdo</h4>
+                <p>Esta Política de Uso constituye el acuerdo total entre usted y CFR Pharmaceuticals.</p>
+                </div>
+        </script>
+
+        <!-- INITIALIZE -->
+        <script type="text/javascript">
+            //$("#templateDefinition").load("js/view/terminosycondiciones.html");
+            app.initialize();
+        </script>
+    </body>
+</html>
