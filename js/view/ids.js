@@ -8,15 +8,23 @@ var button_declinar_terminos = "#submit_declinar_terminos";
 var index_div = "#index_div";
 var button_view_index = "#submit_view_index_div";
 var button_view_controldetoma = "#submit_view_controldetoma_div";
+var button_view_catalogo = "#submit_view_catalogo_div";
+var button_view_facturas = "#submit_view_facturas_div";
+var button_view_farmacias = "#submit_view_farmacias_div";
+var button_view_moodchart = "#submit_view_moodchart_div";
 /* ---------------------------------- Control de Toma View Variables ------------------- */
-var control_de_toma_div = "#control_de_toma_div";
+var controldetoma_div = "#control_de_toma_div";
+var alarmascreadas_div = "#alarmas_creadas_div";
+var datetime_picker = "#datetimepicker_fechaAlerta";
+var button_crear_alarma = "#submit_crear_alarma";
 /* ---------------------------------- Catalogo View Variables ----------------------------- */
-var index_div = "#catalogo_div";
+var catalogo_div = "#catalogo_div";
 /* ---------------------------------- Facturas View Variables ----------------------------- */
-var index_div = "#facturas_div";
+var facturas_div = "#facturas_div";
 /* ---------------------------------- Farmacias View Variables ----------------------------- */
-var index_div = "#farmacias_div";
-
+var farmacias_div = "#farmacias_div";
+/* ---------------------------------- Moodchart View Variables ----------------------------- */
+var moodchart_div = "#moodchart_div";
 
 
 

@@ -46,7 +46,7 @@ body {
     width:100%;
 }
 
-#index_div, #control_de_toma_div, #terminos_y_condiciones_div
+#index_div, #control_de_toma_div, #terminos_y_condiciones_div, #catalogo_div, #facturas_div, #farmacias_div, #moodchart
 {
     display: none;
 }
@@ -54,13 +54,12 @@ body {
 #app_footer
 {
     position: absolute;
-    top:10em;
+    top:20em;
     left:2em;
 }
 /* Portrait layout (default) */
 .app {
     background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
     text-align:center;
     padding:20% 0;
 }

@@ -14,9 +14,9 @@ var index_controller = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        if (navigator.notification) { // Override default HTML alert with native dialog
+        /*if (navigator.notification) { // Override default HTML alert with native dialog
             navigator.notification.alert("PhoneGap is working", function(){}, "", "");
-        }
+        }*/
         
     },
     show: function() {

@@ -8,13 +8,17 @@ var app = {
     // Application Constructor
     initialize: function() {
         /* --------------------------------- Cordova Initialize -------------------------------- */
-        //this.bindEvents();console.log('app.device');
-        this.onDeviceReady();console.log('app.desktop.debug');
+        this.bindEvents();console.log('app.device');
+        //this.onDeviceReady();console.log('app.desktop.debug');
     },
     // Application Constructor
     hideAllDivs: function() {
         $(index_div).fadeOut();
         $(control_de_toma_div).fadeOut();
+        $(catalogo_div).fadeOut();
+        $(facturas_div).fadeOut();
+        $(farmacias_div).fadeOut();
+        $(moodchart_div).fadeOut();
     },
     // Bind Event Listeners
     //
@@ -29,13 +33,17 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         var id = 'deviceready';
-
         FastClick.attach(document.body);
         console.log('FastClick.attach Done.');
-
+        //check for terms & conditions
+        terminosycondiciones_controller.initialize(id);
+        //if terms accepted
         index_controller.initialize(id);
         controldetoma_controller.initialize(id);
-        terminosycondiciones_controller.initialize(id);
+        catalogo_controller.initialize(id);
+        facturas_controller.initialize(id);
+        farmacias_controller.initialize(id);
+        moodchart_controller.initialize(id);
         console.log('Controllers.initialize Done.');
 
         var source   = $("#entry-template").html();
@@ -50,6 +58,10 @@ var app = {
         var html    = template(context);
         $("#templateSection").html(html);
         console.log('Handlebars.initialize Done.');
+
+        gmapsPlacesInitialize();
+        
         //LocalStorageDeleteKey(TERMINOS_ACEPTADOS);
+        console.log('GoogleMapsPlaces.initialize Done.');
     }
 };

@@ -5,7 +5,7 @@ var terminosycondiciones_controller = {
     initialize: function(id) {
         console.log('terminosycondiciones_controller:initialize(' + id + ')');
         var aceptado = LocalStorageGetValue(TERMINOS_ACEPTADOS);
-        console.log("aceptado? "+ aceptado);
+        //console.log("aceptado? "+ aceptado);
         if(aceptado == null)
         {
             console.log("no:null");
@@ -14,6 +14,7 @@ var terminosycondiciones_controller = {
         else
         {
             index_controller.show();
+            //farmacias_controller.show();
         }
     },
     aceptarterminos:function()

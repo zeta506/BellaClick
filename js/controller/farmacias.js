@@ -10,6 +10,7 @@ var farmacias_controller = {
         setTimeout(function() {
             //$(farmacias_div).html(HTML_farmacias_template);
             $(farmacias_div).fadeIn();
+            google.maps.event.trigger(map,'resize');
         }, 444);
     }
 };
