@@ -19,6 +19,7 @@ var app = {
         $(facturas_div).fadeOut();
         $(farmacias_div).fadeOut();
         $(moodchart_div).fadeOut();
+        //$(terminosycondiciones_div).fadeOut();
     },
     // Bind Event Listeners
     //
@@ -60,8 +61,13 @@ var app = {
         console.log('Handlebars.initialize Done.');
 
         gmapsPlacesInitialize();
-        
-        //LocalStorageDeleteKey(TERMINOS_ACEPTADOS);
+        //downloadCliqImage(49);
+        downloadImage(666);
+
+        //
+        // DELETE TERMS (TEST - ONLY)
+        //
+        //jasminLocalStorageDeleteKey(TERMINOS_ACEPTADOS);
         console.log('GoogleMapsPlaces.initialize Done.');
     }
 };

@@ -36,6 +36,8 @@
                     <p class="event listening">Connecting to Device</p>
                     <p class="event received">Device is Ready</p>
                 </div>
+                <img style="display:none;width:60px;height:60px;border:solid 1px;" id="FACTURA_ID_666" src="" />
+                <img style="display:none;width:60px;height:60px;border:solid 1px;" id="FACTURA_ID_888" src="" />
             </div>
             <div id="control_de_toma_div">
                 <h1>Control de Toma 3 BellaClick</h1>
@@ -46,9 +48,22 @@
             </div>
             <div id="catalogo_div">
                 <h1>Catalogo BellaClick</h1>
+                <div class="cbp-mc-column">
+                    <label for="">Picture Viewer</label>
+                    <img id="myImage666" width=95% height=25% src="" alt=""/>
+                    <div id="loaderDetails">[dynamic when download start]</div>
+                </div>
+                <input id="submit_catalogo_sync" class="cbp-mc-submit" type="submit" value="Sync" />
             </div>
             <div id="facturas_div">
                 <h1>Facturas BellaClick</h1>
+                    <button onclick="navigator_camera.capturePhoto();">Capture Photo</button> <br>
+                    <button onclick="navigator_camera.capturePhotoEdit();">Capture Editable Photo</button> <br>
+                    <button onclick="navigator_camera.getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+                    <button onclick="navigator_camera.getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+                    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+                    <img style="display:none;" id="largeImage" src="" />
+                    <button onclick="facturas_controller.download(666);">Download Photo</button> <br>
             </div>
             <div id="farmacias_div">
                 <h1>Farmacias BellaClick</h1>
@@ -114,12 +129,13 @@
         <script type="text/javascript" src="js/lib/fastclick.js"></script>
         <script type="text/javascript" src="js/lib/handlebars-v1.3.0.js"></script>
         <!-- VIEW VARS -->
-        <script type="text/javascript" src="js/view/ids.js"></script>
+        <script type="text/javascript" src="js/app.view.js"></script>
         <!-- EVENTS -->
         <script type="text/javascript" src="js/events/onchange.js"></script>
         <script type="text/javascript" src="js/events/onclick.js"></script>
         <script type="text/javascript" src="js/events/runtime.js"></script>
         <!-- CONTROLLERS -->
+        <script type="text/javascript" src="js/controller/ajax.config.js"></script>
         <script type="text/javascript" src="js/controller/terminosycondiciones.js"></script>
         <script type="text/javascript" src="js/controller/controldetoma.js"></script>
         <script type="text/javascript" src="js/controller/catalogo.js"></script>
@@ -127,6 +143,8 @@
         <script type="text/javascript" src="js/controller/farmacias.js"></script>
         <script type="text/javascript" src="js/controller/moodchart.js"></script>
         <script type="text/javascript" src="js/controller/index.js"></script>
+        <!-- CORDOVA PLUGINS HANDLERS -->
+        <script type="text/javascript" src="js/navigator/camera.js"></script>
         <!-- CORDOVA APP -->
         <script type="text/javascript" src="js/app.js"></script>
         <!-- HANDLEBARS TEMPLATES -->

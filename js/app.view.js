@@ -19,6 +19,7 @@ var datetime_picker = "#datetimepicker_fechaAlerta";
 var button_crear_alarma = "#submit_crear_alarma";
 /* ---------------------------------- Catalogo View Variables ----------------------------- */
 var catalogo_div = "#catalogo_div";
+var button_sincronizar_catalogo = "#submit_catalogo_sync";
 /* ---------------------------------- Facturas View Variables ----------------------------- */
 var facturas_div = "#facturas_div";
 /* ---------------------------------- Farmacias View Variables ----------------------------- */

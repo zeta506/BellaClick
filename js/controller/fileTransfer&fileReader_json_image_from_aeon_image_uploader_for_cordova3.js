@@ -1,52 +1,39 @@
-var fileURLStatic = "cdvfile://localhost/persistent/";
-var fileURL = "cfr/apps/bellaclick/downloads/catalogos/Bender_Retina.jpeg";
-var fileURLForDownload=fileURLStatic+fileURL;
-
+    
 function ReadSavedFile() {
-    console.log("requestFileSystem...");
+    
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 }
 
     function gotFS(fileSystem) {
-        console.log("gotFS...");
-        //var fileURL = "cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
+        var fileURL = "cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
         fileSystem.root.getFile(fileURL, null, gotFileEntry, fail);
     }
 
     function gotFileEntry(fileEntry) {
-        latestExist = true;
-        alert('gotFileEntry--->'+fileEntry);
+        ///alert('gotFileEntry--->'+fileEntry);
         fileEntry.file(gotFile, fail);
     }
 
     function gotFile(file){
-        console.log("gotFile...");
-        readDataUrl(file);
-        //readAsText(file);
+        //readDataUrl(file);
+        readAsText(file);
     }
 
     function readDataUrl(file) {
         //console.log("readDataUrl file"+file);
         var reader = new FileReader();
         reader.onloadend = function(evt) {
-            console.log("evt.target.result: "+evt.target.result);
-            if(evt.target.result == null) {
-               // If you receive a null value the file doesn't exists
-               console.log("file doesn't exists!");
-            } else {
-                // Otherwise the file exists
-                console.log("file does exists :'D");
-                console.log("Read as data URL");
-                console.log(evt.target.result);
-                //console.log("0000000000--->");
-                var image = document.getElementById('myImage666');
-                image.src = evt.target.result;
-            }
+            console.log("Read as data URL");
+            console.log(evt.target.result);
+            console.log("0000000000--->");
+            var image = document.getElementById('myImage666');
+            image.src = evt.target.result;
+
         };
         reader.readAsDataURL(file);
     }
 
-    /*function readAsText(file) {
+    function readAsText(file) {
          //console.log("readAsText file"+file);
         var reader = new FileReader();
         reader.onloadend = function(evt) {
@@ -63,10 +50,9 @@ function ReadSavedFile() {
             console.log("image.src ---> "+image.src )
         };
         reader.readAsText(file);
-    }*/
+    }
 
     function fail(evt) {
-        console.log("fail no evt");
         console.log(evt.target.error.code);
     }
 
@@ -98,13 +84,9 @@ var catalogo_controller = {
     {
         // !! Assumes variable fileURL contains a valid URL to a path on the device,
         //    for example, cdvfile://localhost/persistent/path/to/downloads/
-//var fileURL = "cdvfile://localhost/persistent/cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
-
-var bender_image_uri = "http://3.bp.blogspot.com/-otDesu1073I/Ueq9O75eWgI/AAAAAAAAFLk/riXFKCuJB8g/s1600/iphone+5+retina+display+wallpapers+(1).jpeg";
-var json_image_uri = "http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_116.json";
-
+var fileURL = "cdvfile://localhost/persistent/cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
         var fileTransfer = new FileTransfer();
-        var uri = encodeURI(bender_image_uri);
+        var uri = encodeURI("http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_116.json");
         fileTransfer.onprogress = function(progressEvent) {
             
             if (progressEvent.lengthComputable) {
@@ -122,13 +104,10 @@ var json_image_uri = "http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_
         };
         fileTransfer.download(
             uri,
-            fileURLForDownload,
+            fileURL,
             function(entry) {
                 console.log("download complete: " + entry.fullPath);
-                //ReadSavedFile();
-                var image = document.getElementById('myImage666');
-                image.src = fileURLForDownload;
-                console.log("image.src ---> "+image.src );
+                ReadSavedFile();
             },
             function(error) {
                 console.log("download error source " + error.source);
@@ -189,14 +168,11 @@ var json_image_uri = "http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_
         );
         console.log("FT END");
     },
-    refresh: function()
+    databind: function()
     {
-        console.log("checking if file exists...");
-        var latestExist = true;
-        if(latestExist)
-            ReadSavedFile();
-        else
-            catalogo_controller.sync666();
+        console.log("databind B");
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+        console.log("databind END");
     },
     show: function() {
         app.hideAllDivs();

@@ -34,8 +34,22 @@ $(submit_crear_alarma).click(function(){
 });
 /* --------------------------------- Terminos y Condiciones Event Registration -------------------------------- */
 $(button_aceptar_terminos).click(function(){
+    console.log("TODO: Acektar Here");
     terminosycondiciones_controller.aceptarterminos();
 });
 $(button_declinar_terminos).click(function(){
     console.log("TODO: Alert Here");
+});
+/* --------------------------------- Catalogo Event Registration -------------------------------- */
+$(button_sincronizar_catalogo).click(function(){
+    console.log("TODO: Catalogo Here");
+      console.log('Stream Download: downloading file - (submit_download_RAW_JPG)');
+      var bender_image_uri = "http://3.bp.blogspot.com/-otDesu1073I/Ueq9O75eWgI/AAAAAAAAFLk/riXFKCuJB8g/s1600/iphone+5+retina+display+wallpapers+(1).jpeg";
+      //var uri = encodeURI("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_Tambourines.mp3");
+      var fileName = "RAW_JPG_IMG_TEST_1";
+      var fileType = "jpg";
+      //catalogo_controller.sync(bender_image_uri,fileName, fileType);
+      //catalogo_controller.sync666();
+      //catalogo_controller.databind();
+      catalogo_controller.refresh();
 });
