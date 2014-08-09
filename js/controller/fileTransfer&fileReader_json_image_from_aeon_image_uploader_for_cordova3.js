@@ -84,7 +84,7 @@ var catalogo_controller = {
     {
         // !! Assumes variable fileURL contains a valid URL to a path on the device,
         //    for example, cdvfile://localhost/persistent/path/to/downloads/
-var fileURL = "cdvfile://localhost/persistent/cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
+        var fileURL = "cdvfile://localhost/persistent/cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
         var fileTransfer = new FileTransfer();
         var uri = encodeURI("http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_116.json");
         fileTransfer.onprogress = function(progressEvent) {
@@ -121,52 +121,6 @@ var fileURL = "cdvfile://localhost/persistent/cfr/apps/bellaclick/downloads/cata
                 }
             }
         );
-    },
-    sync: function(uri, fileName, fileType)
-    {
-        // !! Assumes filePath is a valid path on the device
-
-        var fileTransfer = new FileTransfer();
-        var uri = encodeURI("http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_116.json");
-        var filePath = "CLIQ_CHAT_IMAGE_POST_ID_116.json"; // the key factor !!!
-        console.log("filePath ---> "+ filePath);
-        fileTransfer.download(
-            uri,
-            filePath,
-            function(entry) {
-                console.log("download complete: " + entry.fullPath);
-                /*
-                                    //
-                    //SAVING LOCAL REF OF FILE
-                    //
-                    //AddSoundToPackage(1,"download2",entry.toURL);
-                    catalogo_controller.save(1,fileName,downloadPath);
-                    if(fileType == "jpg")
-                    {
-                       var image = document.getElementById('myImage666');
-                        image.src = downloadPath;
-                    }
-                    else
-                    {
-                        alert("cant process type "+ fileType);
-                    }
-                        //
-                    $('#catalogo_div').fadeIn();
-                    */
-            },
-            function(error) {
-                console.log("download error source " + error.source);
-                console.log("download error target " + error.target);
-                console.log("upload error code" + error.code);
-            },
-            false,
-            {
-                headers: {
-                    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-                }
-            }
-        );
-        console.log("FT END");
     },
     databind: function()
     {

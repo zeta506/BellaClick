@@ -11,5 +11,12 @@ var moodchart_controller = {
             //$(moodchart_div).html(HTML_moodchart_template);
             $(moodchart_div).fadeIn();
         }, 444);
+    },
+    showCalendar: function() {
+        app.hideAllDivs();
+        setTimeout(function() {
+            //$(moodchart_div).html(HTML_moodchart_template);
+            $(calendar_div).fadeIn();
+        }, 444);
     }
 };

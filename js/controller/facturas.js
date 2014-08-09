@@ -4,7 +4,7 @@ var facturas_controller = {
     // Application Constructor
     initialize: function(id) {
         console.log('facturas_controller:initialize(' + id + ')');
-        //navigator_camera.initialize(id);
+        navigator_camera.initialize(id);
     },
     upload: function(id, imageData) {
         console.log('facturas_controller:uploadImage(' + id + ')');

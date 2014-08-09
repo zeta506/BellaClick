@@ -1,4 +1,5 @@
 /* ---------------------------------- Global Variables --------------------------------- */
+var CREAR_CUENTA_SERVICE_URL ="http://cfr-be.aeonitgroup.com/Service1.svc/create-bellaclick-user";
 //var FACTURAS_SERVICE_URL = "http://webservices2.aeonitgroup.com/Service1.svc/";
 var FACTURAS_SERVICE_URL = "http://webservices.aeonitgroup.com/FileUploaderService.svc/";
 var FACTURAS_SERVICE_FOLDER = 'BellaClick_Facturas';

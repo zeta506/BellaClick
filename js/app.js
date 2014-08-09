@@ -8,18 +8,28 @@ var app = {
     // Application Constructor
     initialize: function() {
         /* --------------------------------- Cordova Initialize -------------------------------- */
-        this.bindEvents();console.log('app.device');
-        //this.onDeviceReady();console.log('app.desktop.debug');
+        //LocalStorageDeleteKey(TERMINOS_ACEPTADOS);
+        this.bindEvents();console.log('device');
+        //this.onDeviceReady();console.log('desktop.debug');
     },
     // Application Constructor
     hideAllDivs: function() {
+        $(seleccione_pais_div).fadeOut();
+        $(terminosycondiciones_div).fadeOut();
+        $(crear_cuenta_div).fadeOut();
+        $(menu_div).fadeOut();
         $(index_div).fadeOut();
         $(control_de_toma_div).fadeOut();
         $(catalogo_div).fadeOut();
         $(facturas_div).fadeOut();
         $(farmacias_div).fadeOut();
         $(moodchart_div).fadeOut();
+        $(calendar_div).fadeOut();
         //$(terminosycondiciones_div).fadeOut();
+    },
+    goBack: function(){
+        this.hideAllDivs();
+        index_controller.show();
     },
     // Bind Event Listeners
     //
@@ -37,14 +47,16 @@ var app = {
         FastClick.attach(document.body);
         console.log('FastClick.attach Done.');
         //check for terms & conditions
+        seleccione_pais_controller.initialize(id);
         terminosycondiciones_controller.initialize(id);
+        crear_cuenta_controller.initialize(id);
         //if terms accepted
-        index_controller.initialize(id);
         controldetoma_controller.initialize(id);
         catalogo_controller.initialize(id);
         facturas_controller.initialize(id);
         farmacias_controller.initialize(id);
         moodchart_controller.initialize(id);
+        index_controller.initialize(id);
         console.log('Controllers.initialize Done.');
 
         var source   = $("#entry-template").html();
@@ -62,12 +74,7 @@ var app = {
 
         gmapsPlacesInitialize();
         //downloadCliqImage(49);
-        downloadImage(666);
-
-        //
-        // DELETE TERMS (TEST - ONLY)
-        //
-        //jasminLocalStorageDeleteKey(TERMINOS_ACEPTADOS);
+        //downloadImage(666);
         console.log('GoogleMapsPlaces.initialize Done.');
     }
 };

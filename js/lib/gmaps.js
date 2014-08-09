@@ -8,7 +8,9 @@ var markers = [];
 var autocomplete;
 var countryRestrict = { 'country': 'cr' };
 var MARKER_PATH = 'https://maps.gstatic.com/intl/en_us/mapfiles/marker_green';
+var BLUE_MARKER = "http://www.parcobags.com/wp-content/plugins/google-maps-ready/modules/icons/icons_files/def_icons/blue.png";
 var hostnameRegexp = new RegExp('^https?://.+?/');
+var infoWindowHTML = "";
 
 var countries = {
   'au': {
@@ -82,13 +84,33 @@ function gmapsPlacesInitialize() {
     zoomControl: true,
     streetViewControl: false
   };
-
+	 var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+      'sandstone rock formation in the southern part of the '+
+      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+      'south west of the nearest large town, Alice Springs; 450&#160;km '+
+      '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+      'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+      'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+      'Aboriginal people of the area. It has many springs, waterholes, '+
+      'rock caves and ancient paintings. Uluru is listed as a World '+
+      'Heritage Site.</p>'+
+      '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'http://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>';
   map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
-
+  //document.getElementById('info-content').style.display = 'block';
+  //      content: document.getElementById('info-content')
   infoWindow = new google.maps.InfoWindow({
-      content: document.getElementById('info-content')
+		content: contentString
       });
-
+  //document.getElementById('info-content').style.display = 'none';
   // Create the autocomplete object and associate it with the UI input control.
   // Restrict the search to the default country, and to place type "cities".
   autocomplete = new google.maps.places.Autocomplete(
@@ -111,6 +133,7 @@ function gmapsPlacesInitialize() {
 // zoom the map in on the city.
 function onPlaceChanged() {
   var place = autocomplete.getPlace();
+  //document.getElementById('info-content').style.display = 'block';
   console.log("onPlaceChanged--->"+place.geometry);
   if (place.geometry) {
     map.panTo(place.geometry.location);
@@ -130,29 +153,30 @@ function search() {
     types: ['pharmacy']
   };
 
-console.log("places#2: "+places);
+  //console.log("searching... "+places);
   places.nearbySearch(search, function(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       console.log("places.nearbySearch--->"+search);
-      clearResults();
+      //clearResults();
       clearMarkers();
-      // Create a marker for each hotel found, and
+      // Create a marker for each pharmacy found, and
       // assign a letter of the alphabetic to each marker icon.
       for (var i = 0; i < results.length; i++) {
         var markerLetter = String.fromCharCode('A'.charCodeAt(0) + i);
         var markerIcon = MARKER_PATH + markerLetter + '.png';
+        var markerIcon = BLUE_MARKER;
         // Use marker animation to drop the icons incrementally on the map.
         markers[i] = new google.maps.Marker({
           position: results[i].geometry.location,
           animation: google.maps.Animation.DROP,
           icon: markerIcon
         });
-        // If the user clicks a hotel marker, show the details of that hotel
+        // If the user clicks a pharmacy marker, show the details of that hotel
         // in an info window.
         markers[i].placeResult = results[i];
         google.maps.event.addListener(markers[i], 'click', showInfoWindow);
         setTimeout(dropMarker(i), i * 100);
-        addResult(results[i], i);
+        //addResult(results[i], i);
       }
     }
   });
@@ -196,6 +220,7 @@ function addResult(result, i) {
   var results = document.getElementById('results');
   var markerLetter = String.fromCharCode('A'.charCodeAt(0) + i);
   var markerIcon = MARKER_PATH + markerLetter + '.png';
+  var markerIcon = BLUE_MARKER;
 
   var tr = document.createElement('tr');
   tr.style.backgroundColor = (i % 2 == 0 ? '#F0F0F0' : '#FFFFFF');
@@ -219,6 +244,7 @@ function addResult(result, i) {
 
 function clearResults() {
   var results = document.getElementById('results');
+  document.getElementById('listing').style.display = 'block';
   while (results.childNodes[0]) {
     results.removeChild(results.childNodes[0]);
   }
@@ -227,12 +253,14 @@ function clearResults() {
 // Get the place details for a hotel. Show the information in an info window,
 // anchored on the marker for the hotel that the user selected.
 function showInfoWindow() {
+  //document.getElementById('info-content').style.display = 'block';
   var marker = this;
   places.getDetails({reference: marker.placeResult.reference},
       function(place, status) {
         if (status != google.maps.places.PlacesServiceStatus.OK) {
           return;
         }
+        infoWindow.setContent(infoWindowHTML);
         infoWindow.open(map, marker);
         buildIWContent(place);
       });
@@ -240,18 +268,12 @@ function showInfoWindow() {
 
 // Load the place information into the HTML elements used by the info window.
 function buildIWContent(place) {
-  document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
-      'src="' + place.icon + '"/>';
-  document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
-      '">' + place.name + '</a></b>';
-  document.getElementById('iw-address').textContent = place.vicinity;
+	infoWindowHTML = '<img class="pharmacyIcon" src="' + place.icon + '"/>';
+	infoWindowHTML += '<b><a href="' + place.url + '">' + place.name + '</a></b>';
+	infoWindowHTML += place.vicinity;
 
   if (place.formatted_phone_number) {
-    document.getElementById('iw-phone-row').style.display = '';
-    document.getElementById('iw-phone').textContent =
-        place.formatted_phone_number;
-  } else {
-    document.getElementById('iw-phone-row').style.display = 'none';
+    infoWindowHTML += place.formatted_phone_number;
   }
 
   // Assign a five-star rating to the hotel, using a black star ('&#10029;')
@@ -265,11 +287,8 @@ function buildIWContent(place) {
       } else {
         ratingHtml += '&#10029;';
       }
-    document.getElementById('iw-rating-row').style.display = '';
-    document.getElementById('iw-rating').innerHTML = ratingHtml;
+    infoWindowHTML += ratingHtml;
     }
-  } else {
-    document.getElementById('iw-rating-row').style.display = 'none';
   }
 
   // The regexp isolates the first part of the URL (domain plus subdomain)
@@ -281,10 +300,7 @@ function buildIWContent(place) {
       website = 'http://' + place.website + '/';
       fullUrl = website;
     }
-    document.getElementById('iw-website-row').style.display = '';
-    document.getElementById('iw-website').textContent = website;
-  } else {
-    document.getElementById('iw-website-row').style.display = 'none';
+    infoWindowHTML += website;
   }
 }
 

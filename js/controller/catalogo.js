@@ -1,6 +1,8 @@
-var fileURLStatic = "cdvfile://localhost/persistent/";
-var fileURL = "cfr/apps/bellaclick/downloads/catalogos/Bender_Retina.jpeg";
-var fileURLForDownload=fileURLStatic+fileURL;
+var fileURLStatic = "cdvfile://localhost/persistent";
+var fileURL = "/cfr/apps/bellaclick/downloads/catalogos/";
+var fileName = "666.jpeg";
+var filePathForWriteRead = fileURLStatic + fileURL + fileName;
+var TARGET_IMG_ID = 'myImage666';
 
 function ReadSavedFile() {
     console.log("requestFileSystem...");
@@ -9,8 +11,8 @@ function ReadSavedFile() {
 
     function gotFS(fileSystem) {
         console.log("gotFS...");
-        //var fileURL = "cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
-        fileSystem.root.getFile(fileURL, null, gotFileEntry, fail);
+        filePathForWriteRead = fileURLStatic + fileURL + fileName;//refresh variable
+        fileSystem.root.getFile(filePathForWriteRead, null, gotFileEntry, fail);
     }
 
     function gotFileEntry(fileEntry) {
@@ -39,7 +41,7 @@ function ReadSavedFile() {
                 console.log("Read as data URL");
                 console.log(evt.target.result);
                 //console.log("0000000000--->");
-                var image = document.getElementById('myImage666');
+                var image = document.getElementById(TARGET_IMG_ID);
                 image.src = evt.target.result;
             }
         };
@@ -70,6 +72,68 @@ function ReadSavedFile() {
         console.log(evt.target.error.code);
     }
 
+///
+/// Networking GET
+///
+function GetCatalogPages(catalogId, editionNumber)
+{
+  //http://webservices.aeonitgroup.com/CatalogService.svc/get-latest-edition/BellaClick
+    var GET_CATALOG_PAGES_URL = "http://webservices.aeonitgroup.com/CatalogService.svc/get";
+    var urlParams = "/" + catalogId + "/edition/"+ editionNumber;
+    var $type = 'GET',
+    $url = GET_CATALOG_PAGES_URL + urlParams,
+    $data = "",
+    $objJSON;
+    
+    console.log('Get Catalog Pages: Trying to connect webservice --> ' + GET_CATALOG_PAGES_URL);
+    
+    $objJSON = getJSONData($type, $url, $data);
+    //
+    // SERVER RESPONSE?
+    //
+    
+    if ($objJSON == null) {
+        
+        CordovaDialog("Error", "Internet connection not found", "OK");
+        
+        return false;
+        
+        //
+        // ELSE SERVER RESPONSE IS VALID
+        //
+    }
+    else {
+        
+        console.log($objJSON);
+        
+        if($objJSON != false)
+        {
+            console.log("drawing catalog pages on screen...");
+            //var $json = jQuery.parseJSON($objJSON);
+            var counter = 1;
+            
+            var downloadURL = "";
+            var fileName = "";
+            var fileExt = "";
+            var pageNo = "";
+            $.each($objJSON, function (i, item) {
+                   downloadURL = $objJSON[i].DownloadUrl;
+                   fileName = $objJSON[i].FileName;
+                   fileExt = $objJSON[i].FileExt;
+                   pageNo = $objJSON[i].PageNo;
+                   catalogo_controller.sync666(fileName+fileExt, downloadURL, "catalog_pagina_no_"+pageNo);
+            });
+        }
+        else
+        {
+            html += "<h1>No pages were found</h1>";
+        }
+
+        $('#catalogPagesSection').html(html);
+        //stopLoader();
+    }
+}
+
 var catalogo_controller = {
     /* --------------------------------- Event Registration -------------------------------- */
     //$(window).on('hashchange', route);
@@ -77,11 +141,11 @@ var catalogo_controller = {
     initialize: function(id) {
         console.log('catalogo_controller:initialize(' + id + ')');
     },
-    save: function (packageId, soundId, soundPath)
+    save: function (catalogId, pageId, downloadUrl, fileNameWext)
     {
         console.log("catalogo_controller:save");
-        var previousInfo = RetrieveLogInfo(SOUND_PACKAGE+packageId);
-        var CSVItem = packageId + "_" + soundId + "_" + soundPath;
+        var previousInfo = RetrieveLogInfo("CATALOG_ID_"+catalogId);
+        var CSVItem = pageId + "_" + soundId + "_" + fileNameWext;
         var value = "";
         //console.log("previousInfo => "+previousInfo);
         
@@ -90,21 +154,18 @@ var catalogo_controller = {
         else
             value = CSVItem + "," + previousInfo;
         
-        console.log("Package (sound) added ==> " + CSVItem);
+        console.log("Catalog (page) added ==> " + CSVItem);
         
-        LocalStorageCreateKey(SOUND_PACKAGE+packageId, value);
+        LocalStorageCreateKey("CATALOG_ID_"+catalogId, value);
     },
-    sync666: function()
+    sync666: function(fn, imageUrl, html_image_id)
     {
+        fileName = fn;
         // !! Assumes variable fileURL contains a valid URL to a path on the device,
         //    for example, cdvfile://localhost/persistent/path/to/downloads/
-//var fileURL = "cdvfile://localhost/persistent/cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
-
-var bender_image_uri = "http://3.bp.blogspot.com/-otDesu1073I/Ueq9O75eWgI/AAAAAAAAFLk/riXFKCuJB8g/s1600/iphone+5+retina+display+wallpapers+(1).jpeg";
-var json_image_uri = "http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_116.json";
-
+        //var fileURL = "cdvfile://localhost/persistent/cfr/apps/bellaclick/downloads/catalogos/CLIQ_CHAT_IMAGE_POST_ID_116.json";
         var fileTransfer = new FileTransfer();
-        var uri = encodeURI(bender_image_uri);
+        var uri = encodeURI(imageUrl);
         fileTransfer.onprogress = function(progressEvent) {
             
             if (progressEvent.lengthComputable) {
@@ -120,15 +181,19 @@ var json_image_uri = "http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_
                 
             }
         };
+        filePathForWriteRead = fileURLStatic + fileURL + fileName;//refresh variable
         fileTransfer.download(
             uri,
-            fileURLForDownload,
+            filePathForWriteRead,
             function(entry) {
                 console.log("download complete: " + entry.fullPath);
+                 //filePathForWriteRead = fileURLStatic + entry.fullPath;
+                 //TARGET_IMG_ID = 'myImage666';
                 //ReadSavedFile();
-                var image = document.getElementById('myImage666');
-                image.src = fileURLForDownload;
+                var image = document.getElementById(html_image_id);
+                image.src = imageUrl;
                 console.log("image.src ---> "+image.src );
+                save (catalogId, pageId, downloadUrl, fileNameWext);
             },
             function(error) {
                 console.log("download error source " + error.source);
@@ -143,60 +208,22 @@ var json_image_uri = "http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_
             }
         );
     },
-    sync: function(uri, fileName, fileType)
+    getcatalog: function(catalogId,editionId)
     {
-        // !! Assumes filePath is a valid path on the device
-
-        var fileTransfer = new FileTransfer();
-        var uri = encodeURI("http://public.aeonitgroup.com/CFR/CLIQ_CHAT_IMAGE_POST_ID_116.json");
-        var filePath = "CLIQ_CHAT_IMAGE_POST_ID_116.json"; // the key factor !!!
-        console.log("filePath ---> "+ filePath);
-        fileTransfer.download(
-            uri,
-            filePath,
-            function(entry) {
-                console.log("download complete: " + entry.fullPath);
-                /*
-                                    //
-                    //SAVING LOCAL REF OF FILE
-                    //
-                    //AddSoundToPackage(1,"download2",entry.toURL);
-                    catalogo_controller.save(1,fileName,downloadPath);
-                    if(fileType == "jpg")
-                    {
-                       var image = document.getElementById('myImage666');
-                        image.src = downloadPath;
-                    }
-                    else
-                    {
-                        alert("cant process type "+ fileType);
-                    }
-                        //
-                    $('#catalogo_div').fadeIn();
-                    */
-            },
-            function(error) {
-                console.log("download error source " + error.source);
-                console.log("download error target " + error.target);
-                console.log("upload error code" + error.code);
-            },
-            false,
-            {
-                headers: {
-                    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-                }
-            }
-        );
-        console.log("FT END");
+        console.log("catalogo_controller.getcatalog");
+        GetCatalogPages(catalogId,editionId);
+        console.log("getcatalog END");
     },
     refresh: function()
     {
-        console.log("checking if file exists...");
-        var latestExist = true;
+        catalogo_controller.getcatalog(1,1);
+        /*var latestExist = false;
         if(latestExist)
             ReadSavedFile();
         else
-            catalogo_controller.sync666();
+            catalogo_controller.sync666("Bender_Retina.jpeg", "http://3.bp.blogspot.com/-otDesu1073I/Ueq9O75eWgI/AAAAAAAAFLk/riXFKCuJB8g/s1600/iphone+5+retina+display+wallpapers+(1).jpeg");
+        */
+        
     },
     show: function() {
         app.hideAllDivs();

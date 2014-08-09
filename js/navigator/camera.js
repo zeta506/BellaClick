@@ -54,14 +54,14 @@ var navigator_camera = {
     {
         console.log("capturePhoto");
       // Take picture using device camera and retrieve image as base64-encoded string
-      navigator.camera.getPicture(navigator_camera.onPhotoDataSuccess, navigator_camera.onFail, { quality: 5,
+      navigator.camera.getPicture(navigator_camera.onPhotoDataSuccess, navigator_camera.onFail, { quality: 50,
         destinationType: destinationType.DATA_URL });
     },
     capturePhotoEdit: function()
     {
         console.log("capturePhotoEdit");
       // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
-      navigator.camera.getPicture(navigator_camera.onPhotoDataSuccess, navigator_camera.onFail, { quality: 20, allowEdit: true,
+      navigator.camera.getPicture(navigator_camera.onPhotoDataSuccess, navigator_camera.onFail, { quality: 50, allowEdit: true,
         destinationType: destinationType.DATA_URL });
     },
     getPhoto: function(source)

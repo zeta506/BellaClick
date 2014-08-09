@@ -36,17 +36,20 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;*/
-    background:url(../img/background.png); /* 170px x 200px */
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    background:url(../img/background.png) no-repeat center top; /* 170px x 200px */
+    background-size: 140%;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
+    /*text-transform:uppercase;*/
     width:100%;
 }
 
-#index_div, #control_de_toma_div, #terminos_y_condiciones_div, #catalogo_div, #facturas_div, #farmacias_div, #moodchart
+#seleccione_pais_div, #terminos_y_condiciones_div, #crear_cuenta_div, 
+#control_de_toma_div, #catalogo_div, #facturas_div, #farmacias_div, #moodchart_div, #index_div,
+ #logos_div, #calendar_div
 {
     display: none;
 }
@@ -57,30 +60,38 @@ body {
     top:20em;
     left:2em;
 }
+
+#seleccione_pais_div, #terminos_y_condiciones_div, #crear_cuenta_div, 
+#control_de_toma_div, #catalogo_div, #facturas_div, #farmacias_div, #moodchart_div, #index_div, #calendar_div
+{
+    margin-top: 10%;
+}
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    /*background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
     text-align:center;
-    padding:20% 0;
 }
 
 /* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+/*@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
         padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+ /*       margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
-    }
+    /*}
+}
+*/
+.app a{
+    text-decoration: none;
+    color:#fff;
 }
 
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+h1{
+    margin:0 auto 0 auto;
+    color:#ee498d;
+    text-transform: uppercase;
+    font-size: 1.5em;
 }
 
 .event {
@@ -117,4 +128,245 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+/**other titles and content**/
+.div_title_radius_top{
+    -moz-box-shadow: 3px 3px 5px 0px #9c9c9c;
+    -webkit-box-shadow: 3px 3px 5px 0px #9c9c9c;
+    box-shadow: 3px 3px 5px 0px #9c9c9c;
+    border-radius: 10px 10px 0px 0px;
+    -moz-border-radius: 10px 10px 0px 0px;
+    -webkit-border-radius: 10px 10px 0px 0px;
+    background-color:#fcdbe4;
+    margin:0 auto 0 auto;
+    color:#ee498d;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size:20px;
+    font-weight: bold; 
+    padding:1% 2%;
+    display:inline-block;
+    z-index: 1;
+}
+
+.div_content{
+    -moz-box-shadow: 3px 3px 5px 0px #9c9c9c;
+    -webkit-box-shadow: 3px 3px 5px 0px #9c9c9c;
+    box-shadow: 3px 3px 5px 0px #9c9c9c;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    background-color:#ffffff;
+    margin:0 auto 0 auto;
+    display:block;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 1em;
+}
+
+#crear_cuenta_content_form, #menu_div{
+    background-color:#ffffff;
+    margin:0 auto 0 auto;
+    position: relative;
+    width: 96%;
+    z-index: 10;
+}
+
+#terminosycondiciones_border_div{
+    height: 300px;
+    padding: 0em 1em;
+    margin: 0em 2em;
+}
+
+#seleccione_pais_border_div{
+    width: 86%;
+}
+
+#terminosycondiciones_content_div, #seleccione_pais_content_div{
+    width: 95%;
+    height: 92%;
+    margin:0 auto 0 auto;
+    padding:5px 5px;
+}
+#terminosycondiciones_content_div{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-align: left;
+}
+
+#logos_div{
+    width: 80px;
+    margin:0 auto 0 auto;
+    bottom: 0;
+}
+
+.app #index_div #menu_div
+{
+    background-color: #fff;
+    min-height: 200px;
+}
+
+#menu_top{
+position: relative;
+top: 0em;
+left: 2%;
+width:100%;
+}
+
+#menu_bottom{
+position: relative;
+top: 1em;
+left: 25%;
+width:50%;
+}
+
+img.carita
+{
+	width: 93px;
+	height: 36px;
+}
+
+a img.menu_image
+{
+    width: 62px;
+    height: 62px;
+}
+
+h4
+{
+    font-size: .5em;
+    width: 100%;
+    color:#000;
+}
+.pink
+{
+color:#ef5091;
+}
+#botones_div
+{
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+}
+#botones_div a
+{
+    font-size: .62em;
+    width: 28%;
+    text-align: center;
+}
+
+.button_color_pink .izq{
+   float:left;
+}
+
+.button_color_pink .der{
+    float:right;
+}
+
+.button_color_pink .cent{
+   text-align:center;
+}
+/***/
+
+/***Style for the buttons**/
+.button_default {
+    -moz-box-shadow: 3px 3px 5px 0px #9c9c9c;
+    -webkit-box-shadow: 3px 3px 5px 0px #9c9c9c;
+    box-shadow: 3px 3px 5px 0px #9c9c9c;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+    border:4px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:16px;
+    padding: 10px 20px;
+    text-decoration:none;
+}
+
+.button_default:hover {
+    background-color:#fcdbe4;
+}
+
+.button_default:active {
+    position:relative;
+    top:1px;
+}
+
+.button_color_gray{    
+    background-color:#6d6e70;
+}
+
+.button_color_pink{    
+    background-color:#ef5091;
+}
+
+#buttons_terminosycondiciones{
+    margin: 10%;
+}
+
+#submit_declinar_terminos{
+    float: right;
+}
+
+#submit_aceptar_terminos{
+    float: left;
+}
+
+#Bella_Click_logo, #Bella_Click_logo{
+    width: 100%;
+    cursor: pointer;
+}
+
+.cbp-mc-submit{
+    float: left;
+    padding: 5px 5px;
+}
+.menu_items_div{
+    /*position: relative;;
+    width: 100%;
+    height:100px;
+    display: block;*/
+}
+
+/***/
+
+
+.padding5{
+    padding: 5% 0%;
+    text-align:center;
+}
+
+img.flag{
+    width: 32px;
+    height: 32px;
+}
+
+.datos, .crearCuentaTxtField{
+    display:inline-block;
+}
+.crearCuentaTxtField{
+}
+.crearCuentaTxtField img, .crearcuente_ico 
+{
+    vertical-align: bottom;
+}
+
+h3{
+    display:inline-block; 
+    border-bottom-style:solid;
+    border-color:#f05b98;
+    border-width: medium;   
+}
+
+input[type=text], input[type=email], input[type=password]{
+    display:inline-block;   
+    border-style: none;
+    height: 100%;
+    width: 75%;
+    height: 52px;
+    border-bottom-style:solid;
+    border-color:#f05b98;
+    border-width: medium;
 }

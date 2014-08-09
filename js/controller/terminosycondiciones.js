@@ -9,7 +9,11 @@ var terminosycondiciones_controller = {
         if(aceptado == null)
         {
             console.log("no:null");
-            terminosycondiciones_controller.show();
+            seleccione_pais_controller.show();
+            setTimeout(function() {
+                $(seleccione_pais_div).fadeOut();
+                terminosycondiciones_controller.show();
+            }, 2444);
         }
         else
         {
@@ -23,13 +27,18 @@ var terminosycondiciones_controller = {
     {
         LocalStorageCreateKey(TERMINOS_ACEPTADOS, "666");
         $(terminosycondiciones_div).fadeOut();
-        index_controller.show();
+        //index_controller.show();
+        //
+        // Inmediatly calling create user account screen
+        //
+        crear_cuenta_controller.show();
     },
     show: function() {
         app.hideAllDivs();
         setTimeout(function() {
-            //$(terminosycondiciones_div).html(HTML_terminosycondiciones_template);
+            $(terminosycondiciones_content_div).html(terminosycondiciones_latino); //show the content
             $(terminosycondiciones_div).fadeIn();
+            $(logos_div).fadeIn();
         }, 444);
     }
 };

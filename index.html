@@ -26,53 +26,187 @@
         <link rel="stylesheet" type="text/css" href="css/termsandconditions.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/gmaps.css" />
+        <link rel="stylesheet" type="text/css" href="css/moodchart.css" />
+        <!-- custom demo style -->
+        <link rel="stylesheet" type="text/css" href="css/magazine/superslides.css" />
         <title>BellaClick</title>
     </head>
     <body>
         <div class="app">
+            <!-- Seleccione su pais-->
+            <div id="seleccione_pais_div">
+                <div id="seleccione_pais_border_div" class="div_content">
+                    <div id="seleccione_pais_content_div">
+                        <div class="padding5">
+                            <img src="img/decoration_title.png" />
+                            <h1>Seleccione su país</h1>                        
+                         </div>
+                        <div class="padding5"> 
+                            <img src="img/CR_flag.png" class="flag" />
+                            <img src="img/HN_flag.png" class="flag" />
+                            <img src="img/GT_flag.png" class="flag" />
+                            <img src="img/SV_flag.png" class="flag" />
+                            <img src="img/PA_flag.png" class="flag" />
+                            <img src="img/NI_flag.png" class="flag" />
+                            <img src="img/DO_flag.png" class="flag" />
+                        </div>                       
+                        <img src="img/decoration_bottom.png" class="padding5 carita"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminos y condiciones-->
+            <div id="terminos_y_condiciones_div">
+                <div id="terminos_y_condiciones_title_div" class="div_title_radius_top">Términos y condiciones</div>
+                <div id="terminosycondiciones_border_div" class="div_content">
+                    <div id="terminosycondiciones_content_div"></div>
+                </div>
+                <div id="buttons_terminosycondiciones">
+                    <a href="#" id="submit_aceptar_terminos" class="button_default button_color_pink">Acepto</a>
+                    <a href="#" id="submit_declinar_terminos" class="button_default button_color_gray">No Acepto</a>
+                </div>
+            </div>
+
+
+            <!-- Crear Cuenta-->
+            <div id="crear_cuenta_div">
+                <span id="crear_cuenta_title_div" class="div_title_radius_top">Crear una nueva cuenta</span>
+                <form id="crear_cuenta_content_form">
+                    <div>
+                        <img src="img/crearcuenta1.png" class="crearcuente_ico" /><input type="text" id="txtNombre" placeholder="Nombre Completo "/>
+                    </div>
+                    <div>
+                        <img src="img/crearcuenta2.png" class="crearcuente_ico" /><input type="email" id="txtEmail" placeholder="Correo Electrónico "/>
+                    </div>
+                    <div>
+                        <img src="img/crearcuenta5.png" class="crearcuente_ico" /><input type="text" id="txtTelefono1" placeholder="Celular"/>
+                    </div>
+                    <div>
+                        <img src="img/crearcuenta4.png" class="crearcuente_ico" /><input type="text" id="txtMedicoaQueAtiende" placeholder="Medico que lo atiende "/>
+                    </div>
+                    <!--
+                    <div>
+                        <img src="img/crearcuenta3.png" class="crearcuente_ico" /><input type="password" id="txtPassword" placeholder="Contraseña "/>
+                    </div>
+                    <div>
+                        <img src="img/crearcuenta5.png" class="crearcuente_ico" /><input type="text" id="txtTelefono2" placeholder="Teléfono 2" />
+                    </div>
+                -->
+                </form>
+                    <p><a href="#" id="submit_crear_cuenta" class="button_default button_color_pink">Crear una nueva cuenta</a></p>
+                    <!--<p><a href="#" onclick="app.goBack();" class="button_default button_color_pink">Regresar</a></p>-->
+            </div>
+
             <div id="index_div">
-                <h1>Welcome BellaClick</h1>
                 <div id="deviceready" class="blink">
-                    <p class="event listening">Connecting to Device</p>
-                    <p class="event received">Device is Ready</p>
+                    <p class="event listening">Cargando librerias</p>
+                    <p class="event received">BellaClick Prototipo</p>
                 </div>
                 <img style="display:none;width:60px;height:60px;border:solid 1px;" id="FACTURA_ID_666" src="" />
                 <img style="display:none;width:60px;height:60px;border:solid 1px;" id="FACTURA_ID_888" src="" />
+                <!-- Menu -->
+                <div id="menu_div">
+                	<div id="menu_top">
+                        <a href="#" id="submit_view_farmacias_div" class="cbp-mc-submit">
+                            <img src="img/menu1.png" class="menu_image" /><h4>Localización de farmacias</h4>
+                        </a>
+                        <a href="#" id="submit_view_catalogo_div" class="cbp-mc-submit">
+                            <img src="img/menu2.png" class="menu_image" /><h4>Revista de promociones</h4>
+                        </a>
+                        <a href="#" id="submit_view_facturas_div" class="cbp-mc-submit">
+                            <img src="img/menu3.png" class="menu_image" /><h4>Reportar facturas</h4>
+                        </a>
+                    </div>
+                    <div id="menu_bottom">
+                        <a href="#" id="submit_view_controldetoma_div" class="cbp-mc-submit">
+                            <img src="img/menu4.png" class="menu_image" /><h4>Control de toma</h4>
+                        </a>
+                        <a href="#" id="submit_view_moodchart_div" class="cbp-mc-submit">
+                            <img src="img/menu5.png" class="menu_image" /><h4>Mi médico cerca</h4>
+                        </a>
+					</div>
+                </div>
+                <div id="botones_div">
+                    <a href="#" id="submit_actualizar_cuenta" class="button_default button_color_pink izq">Actualizar datos</a>
+                    <a href="#" id="submit_recomendar" class="button_default button_color_pink der">Recomendar una amiga</a>
+                    <a href="#" id="submit_recomendar_whatsapp" class="button_default button_color_pink der">Whatsapp</a>
+                    <p><a href="#" id="submit_ayuda" class="button_default button_color_pink cent">Ayuda</a></p>
+                </div>
             </div>
             <div id="control_de_toma_div">
-                <h1>Control de Toma 3 BellaClick</h1>
-                <div id="alarmas_creadas_div">[Runtime Generated]</div>
+            	<div class="div_content">
+                        <div class="padding5">
+                            <img src="img/decoration_title.png" />
+							<h1>Control de Toma BellaClick</h1>
+							<img src="img/menu4.png" class="menu_image" />    
+                         </div>
+                <div id="alarmas_creadas_div"></div>
                 <label for"datetimepicker_fechaAlerta">Fecha y hora:</label>
                 <input type='datetime-local' id='datetimepicker_fechaAlerta'/>
-                <input id="submit_crear_alarma" class="cbp-mc-submit" type="submit" value="Crear" />
+                <label for"lista_medicamentos">Selecciona Medicamento:</label>
+                <select id="lista_medicamentos">
+                    <option value="Ciclotab">Ciclotab</option>
+                    <option value="Ciclotab15">Ciclotab 15</option>
+                    <option value="Ciclotab20">Ciclotab 20</option>
+                    <option value="Mia">Mias</option>
+                    <option value="Mia20">Mia 20</option>
+                    <option value="Bellaface">Bellaface</option>
+                    <option value="Dixi">Dixi</option>
+                    <option value="Gynorelle">Gynorelle</option>
+                    <option value="Nofertyl">Nofertyl</option>
+                    <option value="Bilive">Bilive</option>
+                    <option value="RecaxinDuo">Recaxin Duo</option>
+                </select>
+                <input id="hiddenMedicamentoSeleccionado" type="hidden" value=""/>
+
+                </div>
+                
+                <a href="#" id="submit_crear_alarma" class="button_default button_color_pink">Crear</a>
+                <a href="#" onclick="app.goBack();" class="button_default button_color_pink">Regresar</a>
             </div>
             <div id="catalogo_div">
                 <h1>Catalogo BellaClick</h1>
                 <div class="cbp-mc-column">
                     <label for="">Picture Viewer</label>
-                    <img id="myImage666" width=95% height=25% src="" alt=""/>
+                    <img id="catalog_pagina_no_1" width=95% height=25% src="" alt=""/>
+                    <img id="catalog_pagina_no_2" width=95% height=25% src="" alt=""/>
+                    <img id="catalog_pagina_no_3" width=95% height=25% src="" alt=""/>
                     <div id="loaderDetails">[dynamic when download start]</div>
                 </div>
                 <input id="submit_catalogo_sync" class="cbp-mc-submit" type="submit" value="Sync" />
+                <div id="catalogPagesSection"></div>
+                <a href="#" onclick="app.goBack();" class="button_default button_color_pink">Regresar</a>
             </div>
             <div id="facturas_div">
-                <h1>Facturas BellaClick</h1>
-                    <button onclick="navigator_camera.capturePhoto();">Capture Photo</button> <br>
-                    <button onclick="navigator_camera.capturePhotoEdit();">Capture Editable Photo</button> <br>
-                    <button onclick="navigator_camera.getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-                    <button onclick="navigator_camera.getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-                    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-                    <img style="display:none;" id="largeImage" src="" />
-                    <button onclick="facturas_controller.download(666);">Download Photo</button> <br>
+            	<div class="div_content">
+
+                        <div class="padding5">
+                            <img src="img/decoration_title.png" />
+							<h1>Reportar Facturas</h1>                  
+                         </div>
+                        <div class="padding5"> 
+                            <img src="img/menu3.png" class="menu_image" />
+                        </div>                       
+
+
+                </div>
+                <!--
+                <a href="#" onclick="navigator_camera.capturePhotoEdit();" class="button_default button_color_pink">Foto Editable</a>
+                <a href="#" onclick="navigator_camera.getPhoto(pictureSource.PHOTOLIBRARY);" class="button_default button_color_pink">Abrir Libreria</a>
+                -->
+                <a href="#" onclick="navigator_camera.capturePhoto();" class="button_default button_color_pink">Tomar Foto</a>
+            	<a href="#" onclick="navigator_camera.getPhoto(pictureSource.SAVEDPHOTOALBUM);" class="button_default button_color_pink">Abrir Album</a>
+                
+                <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+                <img style="display:none;" id="largeImage" src="" />
+
+                <a href="#" onclick="app.goBack();" class="button_default button_color_pink">Regresar</a>
+
             </div>
             <div id="farmacias_div">
-                <h1>Farmacias BellaClick</h1>
-                <div id="findhotels">
+                <!--<div id="findhotels">
                   Encuentra Farmacias en:
-                </div>
-                <div id="locationField">
-                  <input id="autocomplete" placeholder="Digita el nombre de tu ciudad" type="text" />
-                </div>
+                </div>-->
 
                 <div id="controls">
                   <select id="country">
@@ -91,57 +225,120 @@
                     <option value="us">U.S.A.</option>
                     <option value="uk">United Kingdom</option>
                   </select>
+                    <div id="locationField">
+                  		<input id="autocomplete" placeholder="Digita el nombre de tu ciudad" type="text" />
+                	</div>
                 </div>
 
                 <div id="map-canvas"></div>
 
-                <div id="listing">
+                <!--<div id="listing">
                   <table id="resultsTable">
                     <tbody id="results"></tbody>
                   </table>
+                </div>-->
+                <h2 class="pink">Recuerda las farmacias participantes:</h2>
+                <div id="farmaciasballoon">
+                	<b>Fischel</b><span class="pink">-</span><b>La Bomba</b><span class="pink">-</span>
+                	<b>Sucre</b><span class="pink">-</span><b>Farmavalue</b><span class="pink">-</span>
+                	<b>Don Gerardo</b><span class="pink">-</span><b>Farmacia CV</b>(Sabana - Uruca - Rohrmoser)<span class="pink">-</span>
+                	<b>Bazzano</b>(Guadalupe)<span class="pink">-</span><b>Asis</b>(Sn Fco. Dos Rios)<span class="pink">-</span>
+                	<b>La Arboleda</b>(Cartago)<span class="pink">-</span><b>Santa Fe</b>(Liberia)<span class="pink">-</span>
+                	<b>San Rafael Arcangel</b>(Liberia)<span class="pink">-</span><b>Santa Marta</b>(Perez Zeledon)<span class="pink">-</span>
+                	<b>Farmas</b>(Poas - Naranjo - Sarchi - Grecia#1. #2 El Parque, Hospital)<span class="pink">-</span>
+                	<b>Nuestra Señora</b>(Palmares)<span class="pink">-</span><b>Rodriguez y Sagot</b>(Palmares #1 y #2)<span class="pink">-</span>
+                	<b>Virgen del Carmen</b>(Palmares)<span class="pink">-</span><b>Farmacia Palmares</b>
                 </div>
+                <a href="#" onclick="app.goBack();" class="button_default button_color_pink">Regresar</a>
+
             </div>
             <div id="moodchart_div">
-                <h1>MoodChart BellaClick</h1>
+                <ol class="calendar" start="6">
+                	<li id="lastmonth">
+                		<ol start="29">
+                			<li><img src="img/mood/mareada.png" class=""/></li>
+                			<li><img src="img/mood/llorona.png" class=""/></li>
+                		</ol>
+                	</li>
+                	
+                	<li id="thismonth">
+                		<ol>
+                			<li><img src="img/mood/feliz.png" class=""/></li>
+                			<li><img src="img/mood/sexy.png" class=""/></li>
+                			<li><img src="img/mood/nauseas.png" class=""/></li>
+                			<li><img src="img/mood/cansada.png" class=""/></li>
+                			<li><img src="img/mood/insomnio.png" class=""/></li>
+                			<li><img src="img/mood/acne.png" class=""/></li>
+                			<li><img src="img/mood/hinchada.png" class=""/></li>
+                			<li><img src="img/mood/sofocada.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                		</ol>
+                	</li>
+                	<li id="nextmonth">
+                		<ol>
+                			<li><img src="img/mood/mock.png" class=""/></li> 
+                			<li><img src="img/mood/mock.png" class=""/></li>
+                		</ol>
+                	</li>
+                </ol>
+                <a id="button_guardar_mood" class="button_default button_color_pink">Guardar</a>
+                <a id="button_abrir_calendario" class="button_default button_color_pink">Calendario</a>
             </div>
-            <div id="terminos_y_condiciones_div">
-                <h1>Terminos y Condiciones</h1>
-                <div id="templateSection">[Template Here]</div>
-                <input id="submit_aceptar_terminos" class="cbp-mc-submit" type="submit" value="Aceptar" />
-                <input id="submit_declinar_terminos" class="cbp-mc-submit" type="submit" value="Declinar" />
+            <div id="calendar_div">
+                <img src="img/mock-calendar.png" width="80%" height="420px" />
+                <a href="#" onclick="app.goBack();" class="button_default button_color_pink">Regresar</a>
             </div>
         </div>
-        <div id="app_footer">
-            <input id="submit_view_index_div" class="cbp-mc-submit" type="submit" value="Index" />
-            <input id="submit_view_controldetoma_div" class="cbp-mc-submit" type="submit" value="Control de toma" />
-            <input id="submit_view_catalogo_div" class="cbp-mc-submit" type="submit" value="Catalogo" />
-            <input id="submit_view_facturas_div" class="cbp-mc-submit" type="submit" value="Facturas" />
-            <input id="submit_view_farmacias_div" class="cbp-mc-submit" type="submit" value="Farmacias" />
-            <input id="submit_view_moodchart_div" class="cbp-mc-submit" type="submit" value="Moodchart" />
-        </div>
+
+        <div id="logos_div">
+            <img src="img/Bella_Click_logo.png" id="Bella_Click_logo"/>
+            <img src="img/CFR_Pharmaceuticals_logo.png" id="Bella_Click_logo"/>
+        <div>
+
         <!-- LIB -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/lib/jquery.js"></script>
+        <!--  -->
+        <script src="js/magazine/jquery.easing.1.3.js"></script>
+        <script src="js/magazine/jquery.animate-enhanced.min.js"></script>
+        <script src="js/magazine/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
+        <!-- GOOGLE MAPS -->
         <script type="text/javascript" src="js/lib/setnow.jquery.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
         <script type="text/javascript" src="js/lib/gmaps.js"></script>
         <script type="text/javascript" src="js/lib/localstorage.js"></script>
         <script type="text/javascript" src="js/lib/fastclick.js"></script>
         <script type="text/javascript" src="js/lib/handlebars-v1.3.0.js"></script>
+        <script type="text/javascript" src="js/lib/networking.js"></script>
         <!-- VIEW VARS -->
         <script type="text/javascript" src="js/app.view.js"></script>
+        <script type="text/javascript" src="js/view/terminosycondiciones.js"></script>
         <!-- EVENTS -->
         <script type="text/javascript" src="js/events/onchange.js"></script>
         <script type="text/javascript" src="js/events/onclick.js"></script>
         <script type="text/javascript" src="js/events/runtime.js"></script>
         <!-- CONTROLLERS -->
         <script type="text/javascript" src="js/controller/ajax.config.js"></script>
+        <script type="text/javascript" src="js/controller/seleccionepais.js"></script>
         <script type="text/javascript" src="js/controller/terminosycondiciones.js"></script>
         <script type="text/javascript" src="js/controller/controldetoma.js"></script>
         <script type="text/javascript" src="js/controller/catalogo.js"></script>
         <script type="text/javascript" src="js/controller/facturas.js"></script>
         <script type="text/javascript" src="js/controller/farmacias.js"></script>
         <script type="text/javascript" src="js/controller/moodchart.js"></script>
+        <script type="text/javascript" src="js/controller/crear_cuenta.js"></script>
         <script type="text/javascript" src="js/controller/index.js"></script>
         <!-- CORDOVA PLUGINS HANDLERS -->
         <script type="text/javascript" src="js/navigator/camera.js"></script>
@@ -154,56 +351,6 @@
                 <li>{{this}}</li>
               {{/each}}
             </ul>
-                <div class="terms">
-                <h3>Terminos y Condiciones</h3>
-
-                <h4>I- Glosario de Términos</h4>
-
-                <ul>
-                <li>Gynopharm Sociedad Anónima, en adelante conocida como la Empresa: es la empresa que ofrece el servicio detallado en el presente documento por medio de una aplicación a los usuarios a los que se les ha brindado un nombre de usuario y contraseña.</li>
-                <li>CFR PHARMACEUTICALS: es el nombre comercial de la Empresa por medio de la cual la misma opera. Para los efectos del presente documento, Gynopharm S.A. y CFR Pharmaceuticals deberán entenderse como la misma empresa que ofrece el servicio.</li>
-                <li>Usuario / cliente final: son las personas a las que se les ofrece el servicio de beneficiarse con ofertas en la compra de sus medicamentos, para apoyarles en el cumplimiento de su tratamiento médico, a través de la aplicación.</li>
-                <li>Aplicación: es el programa informático diseñado por CFR Pharmaceuticals como herramienta para permitir a los usuarios recibir información sobre promociones y participar en sorteos y actividades.</li>
-                <li>Contenido: significa, sin limitación, todos los textos, imágenes, audio, video y gráficos (y todas sus mejoras, suplementos, actualizaciones, revisiones y/o correcciones) provistos por CFR Pharmaceuticals a través de su aplicación.</li>
-                <li>AHORRO SALUDABLE / BELLACLICK: es el programa elaborado y ofrecido por CFR Pharmaceuticals y que constituye un sistema de apoyo en tratamiento médico.</li>
-                <li>Nombre de usuario: significa una palabra y/o número o conjunto de palabras y/o números creado por el mismo usuario / cliente final para el ingreso a la aplicación, y el cual será de uso exclusivo y no podrá ser compartido a terceras personas.</li>
-                <li>Contraseña o Password: es un conjunto de letras y/o números creado por el mismo usuario / cliente final para su ingreso a la aplicación, y la cual será de uso exclusivo y no podrá ser compartida o transferida a terceras personas.</li>
-                <li>Información de registro: consiste en datos personales, los cuales podrán ser entre los siguientes: nombre completo, dirección, teléfono, correo electrónico, nombre del médico, sin perjuicio de que existan otros. Estos datos deberán ser siempre veraces y actualizados. </li>
-                <li>list item number three</li>
-                <li>list item number three</li>
-                <li>list item number three</li>
-                <li>list item number three</li>
-                </ul>
-
-                <h4>II- Aceptación</h4>
-                <p>Como usuario del programa AHORRO SALUDABLE / BELLACLICK, (en adelante "el programa"), usted acepta respetar los términos y condiciones de esta Política de Uso, que a continuación se enuncian. El hecho de ingresar a la aplicación, registrarse como usuario, participar en las promociones de uno o más medicamentos, implicará para usted la aceptación tácita del presente acuerdo o Política de Uso. Por lo anterior será absolutamente necesario que lea cuidadosamente este documento en su totalidad, a efectos de evitar confusiones.</p>
-
-                <h4>III- Servicio</h4>
-                <p>CFR PHARMACEUTICALS pone a disposición de los usuarios, quienes han creado un nombre de usuario y una contraseña de uso estrictamente personal, el beneficio de informarse y participar en promociones de tratamientos y algunos otros productos farmacéuticos y de libre venta, definidos únicamente por CFR PHARMACEUTICALS, los cuales CFR Pharmaceuticals incluye como ofertas de canjes y/o descuentos como parte de su objetivo de brindar un apoyo a los médicos y pacientes para brindar mayor accesibilidad en el cumplimiento de la terapia dispuesta por el médico correspondiente. Este sistema de apoyo al tratamiento médico que opera por medio de la aplicación consiste en que la empresa pone a disposición de los usuarios distintas ofertas y promociones que pueden variar mes a mes para garantizar mayor accesibilidad al paciente.</p>
-                <p>Todas las promociones son válidas en las cademas de farmacias o farmacias independientes que han decidido participar como puntos de venta/canje de los medicamentos seleccionados para la aplicación. Previo a la adquisición de cualquier oferta el paciente debe contar con la debida receta para mostrarla en cualquiera de estos puntos, ya que es un requisito indispensable e inexcusable, y en el entendido de que todo medicamento de previo a ser entregado, requiere receta médica, el usuario deberá haber comprobado que exista dicha receta médica para el medicamento del que se trate. Dicha receta médica deberá haber sido otorgada posterior a una consulta con un médico especializado en el área de la salud correspondiente a efectos de tener bajo control los efectos secundarios que todo medicamento posee.</p>
-                <p>El servicio ofrecido a través de la aplicación AHORRO SALUDABLE / BELLACLICK es de propiedad exclusiva de esta empresa y constituye un servicio gratuito para los usuarios, por lo que deberán cumplir estrictamente con las condiciones señaladas en este documento. El contenido y los servicios ofrecidos por medio de la aplicación son exclusivamente para uso del usuario, y los medicamentos entregados como beneficio de canje/oferta no podrán ser ofrecidos para la venta, ni transferida su propiedad a terceros.</p>
-                <p>CFR PHARMACEUTICALS podrá en cualquier momento suspender, en forma temporal o definitiva, la suscripción de aquellos usuarios de los que se compruebe que no han cumplido a cabalidad las condiciones estipuladas en este documento, cuando al registrarse brinden información falsa o inexacta, y en cualquier otro caso, a discreción de la empresa.</p>
-                <h4>IV- Seguridad, Nombre de Usuario y Contraseña</h4>
-                <p>El usuario será responsable de guardar el nombre y la contraseña en forma confidencial. El usuario se compromete a notificar inmediatamente a la empresa CFR PHARMACEUTICALS del uso desautorizado, real o sospechado, de su cuenta o contraseña. Bajo ninguna circunstancia, el nombre de usuario y la contraseña podrán ser transferibles.</p>
-                <h4>V- Acerca del abastecimiento de medicamentos</h4>
-                <p>CFR PHARMACEUTICALS ofrecerá a los usuarios una serie de medicamentos en los términos que indiquen cada una de las promociones que se publiquen a través de la aplicación, esta empresa no garantiza que siempre esté abastecida de todos los medicamentos solicitados, lo cual depende de la oferta y la demanda de los mismos en el mercado. A pesar de que esta es una empresa farmacéutica, es posible que algunos medicamentos estén agotados a la hora de la solicitud, de lo cual de ser el caso, así se le avisará al usuario.</p>
-                <h4>VI- Conducta del usuario</h4>
-                <p>Como usuario, usted conviene utilizar los servicios brindados por la aplicación de la manera acá estipulada, y queda absolutamente prohibida su utilización distinta de la que acá se describe, de manera que de demostrarse un uso incorrecto se podrá proceder con la eliminación del usuario y se pondrá fin a los beneficios otorgados por la aplicación, sin necesidad de previo aviso.</p>
-                <h4>VII- Derechos de autor y Licencias</h4>
-                <p>La aplicación elaborada por CFR Pharmaceuticals y todo el material contenido en la misma tienen reservados todos los Derechos. Usted no puede modificar, copiar, reproducir, transmitir, distribuir, publicar, crear obras derivadas, exhibir ni de otro modo transferir o explotar comercialmente ningún material contenido en este sitio, en su totalidad o parcialmente. Está estrictamente prohibida la redistribución, retransmisión o publicación de cualquier material copiado sin el consentimiento expreso y por escrito de CFR Pharmaceuticals. Usted debe respetar todos los derechos de autor contenidos dentro de avisos, artículos, notas y /o noticias alojadas en la aplicación. Usted se compromete a no infringir los derechos de propiedad intelectual de CFR Pharmaceuticals.</p>
-                <h4>VIII- Propiedad Intelectual</h4>
-                <p>CFR PHARMACEUTICALS y SATME son marcas registradas. Nada de lo establecido y/o contenido en la aplicación podrá ser interpretado como equivalente al otorgamiento, expreso o implícito, de una licencia o cualquier otro derecho de uso de las marcas exhibidas en la aplicación, sin el expreso consentimiento deCFR Pharmaceuticals. El uso de las marcas exhibidas en las aplicación está estrictamente prohibido, excepto que dicho uso se efectúe conforme lo establecido en esta Política de Uso. CFR Pharmaceuticals hará respetar sus derechos de Propiedad Intelectual con el máximo rigor permitido por la ley, incluyendo el inicio de acciones penales.</p>
-                <h4>IX- Declaración de descargo de responsabilidad</h4>
-                <p>El usuario al aceptar este documento, acepta inexcusablemente que descarga a CFR Pharmaceuticals de cualquier responsabilidad por el uso de medicamentos que se incluyan en la aplicación y/o promocionados a través de la aplicación o punto de venta. Al adquirir un medicamento en específico, el usuario deberá estar completamente seguro y garantiza, que exista una receta médica que respalde dicho pedido, la cual podrá ser solicitada por CFR Pharmaceuticals. La Empresa no se hará responsable por cualquier efecto no deseado después del consumo o aplicación del medicamento, ya que se entiende que existe una consulta previa ante un médico especializado, el cual habrá entregado la respectiva receta médica y habrá hecho las observaciones y advertencias necesarias.</p>
-                <h4>X- Cambios en el servicio o en la Política de Uso</h4>
-                <p>CFR Pharmaceuticals se reserva el derecho de modificar, suspender o discontinuar el servicio, en cualquier momento, sin necesidad de que medie previo aviso a los usuarios. Además, la empresa se reserva el derecho de modificar esta Política de Uso en cualquier momento, de modo que, periódicamente, usted tiene la oportunidad de informarse sobre los cambios producidos.</p>
-                <h4>XI- Incumplimiento de acatar la Política de Uso</h4>
-                <p>Como usuario, usted conviene y reconoce que, como consecuencia del incumplimiento de esta Política de Uso o de cualquiera de los otros avisos legales contenidos en la aplicación, CFR Pharmaceuticals podrá suspender o dar por concluida su calidad de usuario sin que medie previo aviso.</p>
-                <h4>XII- Ley aplicable y jurisdicción competente</h4>
-                <p>Esta Política de Uso será interpretada de conformidad con las leyes del país en que el usuario se encuentre domiciliado. Cualquier controversia que surja en relación con lo establecido en esta Política de Uso, será resuelta definitivamente por los Tribunales o institución competente del país en que el usuario se encuentre domiciliado, a cuya jurisdicción los usuarios se someten.</p>
-                <h4>XIII- Confirmación de acuerdo</h4>
-                <p>Esta Política de Uso constituye el acuerdo total entre usted y CFR Pharmaceuticals.</p>
-                </div>
         </script>
 
         <!-- INITIALIZE -->
@@ -213,3 +360,4 @@
         </script>
     </body>
 </html>
+
